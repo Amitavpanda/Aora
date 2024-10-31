@@ -50,7 +50,7 @@ const SignUp = () => {
               Sign In
             </Link>
           </View>
-        </View>
+        </View> 
       </ScrollView>
     </SafeAreaView>
   )

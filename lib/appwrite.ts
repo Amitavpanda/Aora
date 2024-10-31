@@ -13,7 +13,7 @@ export const appwriteConfig = {
     endpoint: endpoint,
     platform: platform,
     projectId: projectId,
-    databaseId: databaseId,
+    databaseId: databaseId ?? '',
     userCollectionId: userCollectionId,
     videoCollectionId: videoCollectionId,
     storageId: storageId
@@ -94,5 +94,19 @@ export const getCurrentUser = async () => {
         console.error("err", err);
     }
 }
+
+
+export async function getAllPosts() {
+    try{
+        const posts = await databases.listDocuments(databaseId ?? '', videoCollectionId ?? '');
+        console.log("posts", posts);
+        return posts.documents;
+    }
+    catch(error){
+        console.error("error", error);
+    }
+}
+
+
 
 
